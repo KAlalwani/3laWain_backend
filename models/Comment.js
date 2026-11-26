@@ -4,22 +4,24 @@ const commentSchema = new mongoose.Schema(
   {
     description: {
       type: String,
-      required: true
+      required: true,
     },
     stars: {
-      type: [Number],
-      required: true
+      type: Number,
+      min: 0,
+      max: 5,
+      required: true,
     },
-    owner:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User',
-            required: true
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
-    Activity:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Activity',
-            required: true
-    }
+    activity: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Activity",
+      required: true,
+    },
   },
   { timestamps: true },
 );
