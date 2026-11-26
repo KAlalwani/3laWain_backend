@@ -23,12 +23,6 @@ const planSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-planSchema.set("toJSON", {
-  transform: (document, returnedObject) => {
-    delete returnedObject.hashedPassword;
-  },
-});
-
 const Plan = mongoose.model("Plan", planSchema);
 
 module.exports = Plan;
